@@ -40,15 +40,13 @@ sudo make install
 echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
 ````
 
-Set Path of Gazebo Models (Adapt the path to where to clone the repo)
+
 ````
-echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
+echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo7/models:${GAZEBO_MODEL_PATH}' >> ~/.bashrc
+echo 'export GAZEBO_RESOURCE_PATH=~/ardupilot_gazebo7/worlds:${GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
+echo 'export GAZEBO_PLUGIN_PATH=~/ardupilot_gazebo7/build:${GAZEBO_PLUGIN_PATH}' >> ~/.bashrc
 ````
 
-Set Path of Gazebo Worlds (Adapt the path to where to clone the repo)
-````
-echo 'export GAZEBO_RESOURCE_PATH=~/ardupilot_gazebo/worlds:${GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
-````
 
 ````
 source ~/.bashrc

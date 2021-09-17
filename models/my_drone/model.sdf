@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='my_drone'>
-    <pose>0 0 0.194923 0 0 0</pose>
+    <pose>0 0 0.087 0 0 0</pose>      <!-- 0 0 0.194923 0 0 0 -->
     <link name='base_link'>
       <velocity_decay>
         <linear>0.0</linear>
@@ -9,21 +9,28 @@
       </velocity_decay>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1.22</mass>   <!--1.5-->
+        <mass>1.5</mass>   <!--1.5-->
         <inertia>
-          <ixx>0.00008</ixx>  <!-- 0.008 -->
+          <ixx>0.008</ixx>  
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00015</iyy>   <!--0.015 -->
+          <iyy>0.015</iyy>   
           <iyz>0</iyz>
-          <izz>0.00017</izz>   <!-- 0.017 -->
+          <izz>0.017</izz>   
         </inertia>
       </inertial>
+
+      <sensor name="imu_sensor" type="imu">
+        <pose>0 0 0 3.141593 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+
       <collision name='base_link_collision'>
-        <pose>0 0 -0.08 0 0 0</pose>
+        <pose>0 0 -0.025 0 0 0</pose>    <!-- 0 0 -0.08 0 0 0 -->
         <geometry>
           <box>
-            <size>0.47 0.47 0.23</size>   <!-- 0.47 0.47 0.23                      0.494974747 0.494974747 0.23-->
+            <size>0.385 0.385 0.125</size>   <!-- 0.47 0.47 0.23 -->
           </box>
         </geometry>
         <surface>
@@ -245,11 +252,11 @@
         </material>
       </visual>
       <visual name='front_left_leg_visual_1'>
-        <pose>0.176776695 0.176776695 -0.11 0 0 0</pose>  <!-- 0.123 0.22 -0.11 0 0 0 --> 
+        <pose>0.176776695 0.176776695 -0.05 0 0 0</pose>  <!-- 0.123 0.22 -0.11 0 0 0 --> 
         <geometry>
           <cylinder>
             <radius>0.005</radius>
-            <length>0.17</length>
+            <length>0.075</length>
           </cylinder>
         </geometry>
         <material>
@@ -260,11 +267,11 @@
         </material>
       </visual>
       <visual name='front_right_leg_visual_1'>
-        <pose>0.176776695 -0.176776695 -0.11 0 0 0</pose>   <!-- 0.123 -0.22 -0.11 0 0 0 -->
+        <pose>0.176776695 -0.176776695 -0.05 0 0 0</pose>   <!-- 0.123 -0.22 -0.11 0 0 0 -->
         <geometry>
           <cylinder>
             <radius>0.005</radius>
-            <length>0.17</length>
+            <length>0.075</length>
           </cylinder>
         </geometry>
         <material>
@@ -275,11 +282,11 @@
         </material>
       </visual>
       <visual name='rear_left_leg_visual_1'>
-        <pose>-0.176776695 0.176776695 -0.11 0 0 0</pose>      <!-- -0.140 0.21 -0.11 0 0 0 -->
+        <pose>-0.176776695 0.176776695 -0.05 0 0 0</pose>      <!-- -0.140 0.21 -0.11 0 0 0 -->
         <geometry>
           <cylinder>
             <radius>0.005</radius>
-            <length>0.17</length>
+            <length>0.075</length>
           </cylinder>
         </geometry>
         <material>
@@ -290,11 +297,11 @@
         </material>
       </visual>
       <visual name='rear_right_leg_visual_1'>
-        <pose>-0.176776695 -0.176776695 -0.11 0 0 0</pose>    <!-- -0.140 -0.21 -0.11 0 0 0 -->
+        <pose>-0.176776695 -0.176776695 -0.05 0 0 0</pose>    <!-- -0.140 -0.21 -0.11 0 0 0 -->
         <geometry>
           <cylinder>
             <radius>0.005</radius>
-            <length>0.17</length>
+            <length>0.075</length>
           </cylinder>
         </geometry>
         <material>
@@ -305,20 +312,21 @@
         </material>
       </visual>
     </link>
-    <link name='iris/ground_truth/odometry_sensorgt_link'>
+
+    <!-- link name='iris/ground_truth/odometry_sensorgt_link'>
       <pose>0 0 0 0 -0 0</pose>
-      <!--inertial>
+      <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>0.15</mass> <0.15>
+        <mass>0.15</mass> 
         <inertia>
-          <ixx>0.00001</ixx>   0.0001
+          <ixx>0.0001</ixx>   
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00002</iyy>   0.0002
+          <iyy>0.0002</iyy>   
           <iyz>0</iyz>
-          <izz>0.00002</izz>  0.0002
+          <izz>0.0002</izz>  
         </inertia>
-      </inertial-->
+      </inertial>
     </link>
     <joint name='iris/ground_truth/odometry_sensorgt_joint' type='revolute'>
       <child>iris/ground_truth/odometry_sensorgt_link</child>
@@ -341,20 +349,21 @@
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
-    </joint>
-    <link name='iris/imu_link'>
-      <!--inertial>
+    </joint-->
+
+    <!-- link name='iris/imu_link'>
+      <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.15</mass>   <0.15
+        <mass>0.15</mass>   
         <inertia>
-          <ixx>0.00001</ixx>  0.00001
+          <ixx>0.00001</ixx>  
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00002</iyy>   0.00002
+          <iyy>0.00002</iyy>   
           <iyz>0</iyz>
-          <izz>0.00002</izz>   0.00002
+          <izz>0.00002</izz>   
         </inertia>
-      </inertial-->
+      </inertial>
       <sensor name="imu_sensor" type="imu">
         <pose>0 0 0 3.141593 0 0</pose>
         <always_on>1</always_on>
@@ -382,7 +391,8 @@
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
-    </joint>
+    </joint-->
+
 <!--
     <link name='iris/imugt_link'>
       <pose>0 0 0 0 -0 0</pose>
@@ -418,26 +428,27 @@
       </axis>
     </joint>
 -->
+
     <link name='rotor_0'>
       <pose>0.181776695 -0.176776695 0.023 0 -0 0</pose>   <!-- 0.13 -0.22 0.023 0 -0 0 -->
-      <!-- inertial>
+      <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>0.025</mass>
+        <mass>0.025</mass>   <!-- 0.025-->
         <inertia>
-          <ixx>0.000000975</ixx>    <9.75e-06
+          <ixx>9.75e-06</ixx>    <!-- 9.75e-06 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000166704</iyy>   <0.000166704
+          <iyy>0.000166704</iyy>   <!-- 0.000166704 -->
           <iyz>0</iyz>
-          <izz>0.0000167604</izz>   <0.000167604
+          <izz>0.000167604</izz>   <!-- 0.000167604 -->
         </inertia>
-      </inertial-->
+      </inertial>
       <collision name='rotor_0_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.005</length>
-            <radius>0.1</radius>
+            <length>0.008</length>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -453,8 +464,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.75 0.75 1</scale>   <!-- 1 1 1-->
-            <uri>model://my_drone_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.93 0.93 0.93</scale>   <!-- 1 1 1-->
+            <uri>model://my_drone/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -490,24 +501,24 @@
     </joint>
     <link name='rotor_1'>
       <pose>-0.171776695 0.176776695 0.023 0 -0 0</pose>    <!-- -0.13 0.2 0.023 0 -0 0 -->
-      <!-- inertial>
+      <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>0.025</mass>
+        <mass>0.025</mass>   <!-- 0.025-->
         <inertia>
-          <ixx>0.000000975</ixx>    <9.75e-06
+          <ixx>9.75e-06</ixx>    <!-- 9.75e-06 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000166704</iyy>   <0.000166704
+          <iyy>0.000166704</iyy>   <!-- 0.000166704 -->
           <iyz>0</iyz>
-          <izz>0.0000167604</izz>   <0.000167604
+          <izz>0.000167604</izz>   <!-- 0.000167604 -->
         </inertia>
-      </inertial-->
+      </inertial>
       <collision name='rotor_1_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.005</length>
-            <radius>0.1</radius>
+            <length>0.008</length>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -523,8 +534,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.75 0.75 1</scale>   <!-- 1 1 1-->
-            <uri>model://my_drone_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.93 0.93 0.93</scale>   <!-- 1 1 1-->
+            <uri>model://my_drone/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -560,24 +571,24 @@
     </joint>
     <link name='rotor_2'>
       <pose>0.176776695 0.176776695 0.023 0 -0 0</pose>   <!-- 0.13 0.22 0.023 0 -0 0 -->
-      <!-- inertial>
+      <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>0.025</mass>
+        <mass>0.025</mass>   <!-- 0.025-->
         <inertia>
-          <ixx>0.000000975</ixx>    <9.75e-06
+          <ixx>9.75e-06</ixx>    <!-- 9.75e-06 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000166704</iyy>   <0.000166704
+          <iyy>0.000166704</iyy>   <!-- 0.000166704 -->
           <iyz>0</iyz>
-          <izz>0.0000167604</izz>   <0.000167604
+          <izz>0.000167604</izz>   <!-- 0.000167604 -->
         </inertia>
-      </inertial-->
+      </inertial>
       <collision name='rotor_2_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.005</length>  
-            <radius>0.1</radius> 
+            <length>0.008</length>  
+            <radius>0.12</radius> 
           </cylinder>
         </geometry>
         <surface>
@@ -593,8 +604,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.75 0.75 1</scale>   <!-- 1 1 1-->
-            <uri>model://my_drone_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            <scale>0.93 0.93 0.93</scale>   <!-- 1 1 1-->
+            <uri>model://my_drone/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -630,24 +641,24 @@
     </joint>
     <link name='rotor_3'>
       <pose>-0.176776695 -0.176776695 0.023 0 -0 0</pose>     <!-- -0.13 -0.2 0.023 0 -0 0 -->
-      <!-- inertial>
+      <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>0.025</mass>
+        <mass>0.025</mass>   <!-- 0.025-->
         <inertia>
-          <ixx>0.000000975</ixx>    <9.75e-06
+          <ixx>9.75e-06</ixx>    <!-- 9.75e-06 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000166704</iyy>   <0.000166704
+          <iyy>0.000166704</iyy>   <!-- 0.000166704 -->
           <iyz>0</iyz>
-          <izz>0.0000167604</izz>   <0.000167604
+          <izz>0.000167604</izz>   <!-- 0.000167604 -->
         </inertia>
-      </inertial-->
+      </inertial>
       <collision name='rotor_3_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.005</length>
-            <radius>0.1</radius>
+            <length>0.008</length>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -663,8 +674,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.75 0.75 1</scale>  <!-- 1 1 1-->
-            <uri>model://my_drone_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            <scale>0.93 0.93 0.93</scale>  <!-- 1 1 1-->
+            <uri>model://my_drone/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
