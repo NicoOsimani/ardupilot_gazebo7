@@ -1,135 +1,25 @@
-# Ardupilot Gazebo plugin 
+# Ardupilot Gazebo 7 plugin
 
-## Requirements :
-Native Ubuntu able to run full 3D graphics.
-Gazebo version 7.x or 8.x  
-The dev branch will works on gazebo >= 8.x  
+## Installation:
 
-## Disclamer : 
-This is a playground until I get some time to push the correct patch to gazebo master (I got hard time to work with mercurial..)!  
-So you can expect things to not be up-to-date.  
-This assume that your are using Ubuntu 16.04
-
-## Usage :
-I assume you already have Gazebo installed with ROS (or without).  
-If you don't have it yet, install ROS with sudo apt install ros-kinetic-desktop-full 
-(follow instruction here http://wiki.ros.org/kinetic/Installation/Ubuntu).  
-Due to a bug in current gazebo release from ROS, please update gazebo with OSRF version from http://gazebosim.org/tutorials?tut=install_ubuntu
-libgazebo7-dev or libgazebo8-dev must be installed.
-
-For Gazebo 7
+On a new terminal:
 ````
-sudo apt-get install libgazebo7-dev
-````
-OR  
-For Gazebo 8
-````
-sudo apt-get install libgazebo8-dev
-````
-````
-git clone https://github.com/khancyr/ardupilot_gazebo
-cd ardupilot_gazebo
+git clone https://github.com/NicoOsimani/ardupilot_gazebo7.git
+cd ardupilot_gazebo7
 mkdir build
 cd build
 cmake ..
 make -j4
 sudo make install
-````
-
-````
 echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
-````
-
-
-````
 echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo7/models:${GAZEBO_MODEL_PATH}' >> ~/.bashrc
 echo 'export GAZEBO_RESOURCE_PATH=~/ardupilot_gazebo7/worlds:${GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
 echo 'export GAZEBO_PLUGIN_PATH=~/ardupilot_gazebo7/build:${GAZEBO_PLUGIN_PATH}' >> ~/.bashrc
-````
-
-
-````
 source ~/.bashrc
 ````
 
-DONE !
-
-Now launch a world file with a copter/rover/plane and ardupilot plugin, and it should work! 
-(I will try to add some world file and model later)
-
-## HELP
-
-How to Launch :  
-Launch Ardupilot Software In the Loop Simulation for each vehicle.
-On new terminal, Launch Gazebo with basic demo world.
-
-#####ROVER (no model provided for now)
-
-On 1st Terminal(Launch Ardupilot SITL)
-````
-sim_vehicle.py -v APMrover2 -f gazebo-rover --map --console
-````
-
-On 2nd Termianal(Launch Gazebo with demo Rover model)
-````
-gazebo --verbose worlds/ (Please Add if there is one.)
-````
-
-##### COPTER
-
-On 1st Terminal(Launch Ardupilot SITL)
-````
-sim_vehicle.py -v ArduCopter -f gazebo-iris --map --console
-````
-
-On 2nd Terminal(Launch Gazebo with demo 3DR Iris model)
-````
-gazebo --verbose worlds/iris_arducopter_demo2.world
-````
-
-##### PLANE
-
-On 1st Terminal(Launch Ardupilot SITL)
-````
-sim_vehicle.py -v ArduPlane -f gazebo-zephyr --map --console
-````
-
-On 2nd Terminal(Launch Gazebo with demo Zephyr flying wing model)
-````
-gazebo --verbose worlds/zephyr_ardupilot_demo.world
-````
-
-In addition, you can use any GCS of Ardupilot locally or remotely (will require connection setup).
-If MAVProxy Developer GCS is uncomportable. Omit --map --console arguments out of SITL launch. and Use APMPlanner 2 or QGroundControl instead.
-Local connection with APMPlanner2/QGroundControl is automatic, and recommended.
-
-## Troubleshooting
-
-### Missing libArduPilotPlugin.so... etc 
-
-In case you see this message when you launch gazebo with demo worlds, check you have no error after sudo make install.  
-If no error use "ls" on the install path given to see if the plugin is really here.  
-If this is correct, check with "cat /usr/share/gazebo/setup.sh" the variable GAZEBO_PLUGIN_PATH. It should be the same as the install path. If not use "cp" to copy the lib to right path. 
-
-For Example
+## Usage:
 
 ````
-sudo cp -a /usr/lib/x86_64-linux-gnu/gazebo-7.0/plugins/ /usr/lib/x86_64-linux-gnu/gazebo-7/
+gazebo --verbose ardupilot_gazebo7/worlds/my_drone_arducopter_runway.world
 ````
-
-path mismatch is confirmed as ROS's glitch. It'll be fixed.
-
-### Future(not activated yet)
-To use Gazebo gps, you must offset the heading of +90° as gazebo gps is NWU and ardupilot is NED 
-(I don't use GPS altitude for now)  
-example : for SITL default location
-````
-    <spherical_coordinates>
-      <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>-35.363261</latitude_deg>
-      <longitude_deg>149.165230</longitude_deg>
-      <elevation>584</elevation>
-      <heading_deg>87</heading_deg>
-    </spherical_coordinates>
-````
-
