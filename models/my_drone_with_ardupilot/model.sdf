@@ -384,8 +384,8 @@
     <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
-      <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cla>4.2500</cla>     <!-- cl = cla*a0*cosSweepAngle   cosSweepAngle = 1.0 - sinSweepAngle * sinSweepAngle-->
+      <cda>0.10</cda>       <!-- cd = cda*a0*cosSweepAngle -->
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
