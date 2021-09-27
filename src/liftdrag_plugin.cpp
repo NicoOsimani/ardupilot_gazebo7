@@ -23,7 +23,7 @@
 #include "gazebo/sensors/SensorManager.hh"
 #include "gazebo/transport/transport.hh"
 #include "gazebo/msgs/msgs.hh"
-#include "include/my_liftdrag_plugin.h"
+#include "include/liftdrag_plugin.h"
 
 using namespace gazebo;
 
@@ -394,5 +394,7 @@ void LiftDragPlugin::OnUpdate()
   this->link->AddForceAtRelativePosition(force, this->cp);
   this->link->AddTorque(torque);
 
-  gzdbg << "provaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  gzdbg << "cosSweepAngle: " << cosSweepAngle << "\n";
+  gzdbg << "alpha: " << this->alpha << "\n";
+  gzdbg << "cd: " << cd << "\n";
 }

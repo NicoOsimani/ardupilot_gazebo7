@@ -385,7 +385,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>     <!-- cl = cla*a0*cosSweepAngle   cosSweepAngle = 1.0 - sinSweepAngle * sinSweepAngle-->
-      <cda>0.10</cda>       <!-- cd = cda*a0*cosSweepAngle -->
+      <cda>0.00000032</cda>       <!-- cd = cda*a0*cosSweepAngle      0.10-->
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -401,7 +401,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -418,7 +418,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -434,7 +434,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -451,7 +451,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -467,7 +467,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -484,7 +484,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
@@ -500,7 +500,7 @@
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
-      <cda>0.10</cda>
+      <cda>0.00000032</cda>
       <cma>0.00</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>

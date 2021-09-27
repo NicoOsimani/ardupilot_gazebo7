@@ -150,7 +150,7 @@ target_link_libraries(ArduCopterIRLockPlugin ${GAZEBO_LIBRARIES})
 add_library(ArduPilotPlugin SHARED src/ArduPilotPlugin.cc)
 target_link_libraries(ArduPilotPlugin ${GAZEBO_LIBRARIES})
 
-add_library(LiftDragPlugin SHARED src/my_liftdrag_plugin.cpp)
+add_library(LiftDragPlugin SHARED src/liftdrag_plugin.cpp)
 target_link_libraries(LiftDragPlugin ${GAZEBO_LIBRARIES})
 
 if("${GAZEBO_VERSION}" VERSION_LESS "8.0")
