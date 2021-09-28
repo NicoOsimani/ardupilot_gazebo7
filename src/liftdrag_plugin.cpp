@@ -394,14 +394,15 @@ void LiftDragPlugin::OnUpdate()
   this->link->AddForceAtRelativePosition(force, this->cp);
   this->link->AddTorque(torque);
 
-  gzdbg << "cosSweepAngle: " << cosSweepAngle << "\n";
-  gzdbg << "alpha: " << this->alpha << "\n";
-  gzdbg << "q: " << q << "\n";
-  gzdbg << "area: " << this->area << "\n";
-  /*
-  gzdbg << "drag: " << drag << "\n";
-  gzdbg << "cd: " << cd << "\n";
-  gzdbg << "lift: " << lift << "\n";
-  gzdbg << "cl: " << cl << "\n";
-  */
+  if (0)
+  {
+    gzdbg << "=============================\n";
+    gzdbg << "alpha: " << this->alpha << "\n";
+    gzdbg << "=============================\n";
+    gzdbg << "cosSweepAngle: " << cosSweepAngle << "\n";
+    gzdbg << "=============================\n";
+    gzdbg << "lift: " << lift << "\n";
+    gzdbg << "=============================\n";
+    gzdbg << "drag: " << drag << "\n";
+  }
 }
