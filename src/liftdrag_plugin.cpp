@@ -396,5 +396,12 @@ void LiftDragPlugin::OnUpdate()
 
   gzdbg << "cosSweepAngle: " << cosSweepAngle << "\n";
   gzdbg << "alpha: " << this->alpha << "\n";
+  gzdbg << "q: " << q << "\n";
+  gzdbg << "area: " << this->area << "\n";
+  /*
+  gzdbg << "drag: " << drag << "\n";
   gzdbg << "cd: " << cd << "\n";
+  gzdbg << "lift: " << lift << "\n";
+  gzdbg << "cl: " << cl << "\n";
+  */
 }
