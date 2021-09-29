@@ -1,8 +1,10 @@
-# Ardupilot Gazebo 7 plugin
+# ArduPilot & Gazebo 7 plugin
+
+Ardupilot & Gazebo 7 plugin based on the https://github.com/khancyr/ardupilot_gazebo plugin. This assumes that your are using Ubuntu 16.04
 
 ## Installation:
 
-On a new terminal:
+On a terminal:
 ````
 git clone https://github.com/NicoOsimani/ardupilot_gazebo7.git
 cd ardupilot_gazebo7
@@ -20,6 +22,12 @@ source ~/.bashrc
 
 ## Usage:
 
+On a terminal, start gazebo:
 ````
 gazebo --verbose ardupilot_gazebo7/worlds/my_drone_arducopter_runway.world
+````
+
+On a new terminal, start ArduPilot SITL:
+````
+./ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter -f gazebo-iris --console --map
 ````
