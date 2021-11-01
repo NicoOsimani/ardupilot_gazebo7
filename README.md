@@ -22,7 +22,7 @@ source ~/.bashrc
 
 ## Usage:
 
-On a terminal, start gazebo:
+On a terminal, start Gazebo:
 ````
 gazebo --verbose ardupilot_gazebo7/worlds/my_drone_arducopter_runway.world
 ````
